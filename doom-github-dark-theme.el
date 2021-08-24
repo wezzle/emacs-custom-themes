@@ -56,7 +56,7 @@ Can be an integer to determine the exact padding."
    ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
    ;; or region), especially when paired with the `doom-darken', `doom-lighten',
    ;; and `doom-blend' helper functions.
-   (bg-alt     '("#23292f" "black"       "black"        ))
+   (bg-alt     (doom-darken '("#24292e" "black" "black" ) 0.2))
    (fg-alt     '("#5B6268" "#2d2d2d"     "white"        ))
 
    ;; These should represent a spectrum from bg to fg, where base0 is a starker
@@ -131,6 +131,7 @@ Can be an integer to determine the exact padding."
 
   ;;;; Base theme face overrides
   (((line-number &override) :foreground base4)
+   ((line-number &override) :background bg-alt)
    ((line-number-current-line &override) :foreground fg)
    ((font-lock-comment-face &override)
     :background (if doom-github-dark-brighter-comments (doom-lighten bg 0.05)))
@@ -162,8 +163,8 @@ Can be an integer to determine the exact padding."
    (markdown-header-face :inherit 'bold :foreground red)
    ((markdown-code-face &override) :background (doom-lighten base3 0.05))
    ;;;; rjsx-mode
-   (rjsx-tag :foreground red)
-   (rjsx-attr :foreground orange)
+   (rjsx-tag :foreground green)
+   (rjsx-attr :foreground magenta)
    ;;;; helm
    (helm-ff-file-extension :foreground blue)
    ;;;; solaire-mode
